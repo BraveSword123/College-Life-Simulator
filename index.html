@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.cdnfonts.com/css/digital-numbers" rel="stylesheet"> <!-- Probably Need to Remove This -->
+ <!---<script src="https://kit.fontawesome.com/9865fe30cd.js" crossorigin="anonymous"></script>--> 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>College Life</title>
+  <link href='/style.css' rel='stylesheet'>
+</head>
+<body>
+<!-- Opening -->
+<div id="topper">College Life</div>
+<div id="open_div">
+<div id="opening">
+Welcome to College Life 
+<form>
+<br><label for="fname">First Name:</label>
+<input type="text" id="fname" name="fname"><br>
+
+<br><label for="lname">Last Name:</label>
+<input type="text" id="lname" name="lname"><br>
+
+<br>
+<label for="gender">Gender:</label>
+<select name="gender" id="gender">
+<option value="woman">Woman</option>
+<option value="man">Man</option>
+<option value="non-binary">Non-Binary</option>
+</select>
+<br> <br>
+<label for="major">Major:</label>
+<select name="major" id="major">
+<option name="Business">Business</option>
+<option value="Computer Science">Computer Science</option>
+<option value="Psychology">Psychology</option>
+<option value="Political Science">Political Science</option>
+<option value="English">English</option>
+<option value="Education">Education</option>
+<option value="Health">Health</option>
+</select>
+<br> <br> 
+</form>
+<button id="open_enter" onclick="statButton()">Enter</button>
+</div>
+</div>
+<!-- End of Opening -->
+
+<!-- Beginning of Main Nav -->
+ <div id="main_nav">
+<div id="left_nav">
+  <div id="info_div">
+  <div id="first_div"></div>
+  <div id="last_div"></div>
+  <div id="major_div"></div>
+  <div id="semester_div"></div>
+  <div id="money_div"></div>
+</div>
+<div id="playButton" onclick="changeSemester()">
+  Next 
+  <br>
+  Semester
+</div>
+</div>
+
+<div id="right_nav">
+  <div id="clubs_nav" onclick="club_Button()">Clubs</div>
+  <div id="dorms_nav" onclick="dorm_Button()">Dorms</div>
+  <div id="finance_nav" onclick="finance_Button()">Finances</div>
+  <div id="friends_nav" onclick="friend_Button()">Friends</div>
+  <div id="intern_nav" onclick="intern_Button()">Internships</div>
+  <div id="jobs_nav" onclick="job_Button()">Part-Time Jobs</div>
+  <div id="school_nav" onclick="school_Button()">Schoolwork</div>
+</div>
+</div>
+<!-- End of Main Nav -->
+
+<!-- Beginning of Options_Div-->
+
+<div id="options_div">
+<i id="back_button" class="fa-solid fa-arrow-left" onclick="goBack()"></i>
+<div id="title_options"></div>
+<div id="first_options" onclick="firstOption()"></div>
+<div id="second_options" onclick="secondOption()"></div>
+<div id="third_options" onclick="thirdOption()"></div>
+<div id="fourth_options" onclick="fourthOption()"></div>
+<div id="fifth_options" onclick="fifthOption()"></div>
+<div id="sixth_options" onclick="sixthOption()"></div>
+<div id="seventh_options" onclick="seventhOption()"></div>
+<div id="eighth_options" onclick="eighthOption()"></div>
+</div>
+  <script defer type="text/javascript" src="/main.js"></script>
+</body>
+</html>
