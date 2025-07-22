@@ -10,10 +10,11 @@ let semester = "Fall";
 let dormMates = []; 
 let clubs = []; 
 let friends = []; 
-let interns = []; 
+let hasInternship = false;  
 let jobs = []; 
 let grade; // May remove later
 let dormCounter = 0;  
+let jobCounter = 0; 
 
 class main{
     constructor(first, last, gender, major){
@@ -53,9 +54,55 @@ function dorm_Button(){
     document.getElementById("seventh_options").textContent = " ";
     document.getElementById("eighth_options").textContent = " ";
 }
+
+function finance_Button(){
+    document.getElementById("main_nav").style.display = 'none';
+    document.getElementById("options_div").style.display = 'block';
+
+    document.getElementById("title_options").textContent = "Finances";
+    document.getElementById("first_options").textContent = "Housing";
+    document.getElementById("second_options").textContent = "Internship(s)";
+    document.getElementById("third_options").textContent = "Part Time Job(s)";
+    document.getElementById("fourth_options").textContent = " ";
+    document.getElementById("fifth_options").textContent = " ";
+    document.getElementById("sixth_options").textContent = " ";
+    document.getElementById("seventh_options").textContent = " ";
+    document.getElementById("eighth_options").textContent = " ";
+}
+
+function intern_Button(){
+    document.getElementById("main_nav").style.display = 'none';
+    document.getElementById("options_div").style.display = 'block';
+
+    document.getElementById("title_options").textContent = "Internships";   
+    document.getElementById("first_options").textContent = "Find Internships"; 
+    document.getElementById("second_options").textContent = "Current Internships";
+    document.getElementById("third_options").textContent = " ";
+    document.getElementById("fourth_options").textContent = " ";
+    document.getElementById("fifth_options").textContent = " ";
+    document.getElementById("sixth_options").textContent = " ";
+    document.getElementById("seventh_options").textContent = " ";
+    document.getElementById("eighth_options").textContent = " ";
+}
+
+function job_Button(){
+    document.getElementById("main_nav").style.display = 'none';
+    document.getElementById("options_div").style.display = 'block';
+
+    document.getElementById("title_options").textContent = "Part-Time Jobs";
+    document.getElementById("first_options").textContent = "Find Jobs";
+    document.getElementById("second_options").textContent = "Current Jobs";
+    document.getElementById("third_options").textContent = " ";
+    document.getElementById("fourth_options").textContent = " ";
+    document.getElementById("fifth_options").textContent = " ";
+    document.getElementById("sixth_options").textContent = " ";
+    document.getElementById("seventh_options").textContent = " ";
+    document.getElementById("eighth_options").textContent = " ";
+}
+
 function firstOption(){
     if(document.getElementById("first_options").textContent === "Join Clubs"){
-        document.getElementById("title_options").textContent = "Find Clubs";
+        document.getElementById("title_options").textContent = "Join Clubs";
         document.getElementById("first_options").textContent = "Programming Club";
         document.getElementById("second_options").textContent = "Social Justice Club";
         document.getElementById("third_options").textContent = "Debate Club";
@@ -74,7 +121,7 @@ function firstOption(){
 }
 
 else if(document.getElementById("first_options").textContent === "Find Dormmates"){
-    document.getElementById("title_options").textContent = "Dorms";
+    document.getElementById("title_options").textContent = "Find Dormmates";
     document.getElementById("first_options").textContent = "Ava Morgan";
     document.getElementById("second_options").textContent = "Liam Carter";
     document.getElementById("third_options").textContent = "Chloe Bennett";
@@ -93,6 +140,34 @@ else if(document.getElementById("first_options").textContent === "Ava Morgan" &&
     ++dormCounter;
     console.log(dormCounter);  
 }
+
+else if(document.getElementById("first_options").textContent === "Find Internships"){
+hasInternship = true; 
+document.getElementById("main_nav").style.display = 'block';
+document.getElementById("options_div").style.display = 'none';
+// Add Financial Stuff Here 
+}
+
+else if(document.getElementById("first_options").textContent === "Find Jobs"){
+    document.getElementById("title_options").textContent = "Find Jobs";
+    document.getElementById("first_options").textContent = "Library Assistant"; 
+    document.getElementById("second_options").textContent = "Barista"; 
+    document.getElementById("third_options").textContent = "Campus Tour Guide";
+    document.getElementById("fourth_options").textContent = "Resident Assistant";
+    document.getElementById("fifth_options").textContent = "Tutor";
+    document.getElementById("sixth_options").textContent = "Café Worker";
+    document.getElementById("seventh_options").textContent = "Research Assistant";
+    document.getElementById("eighth_options").textContent = "Fitness Instructor";
+    }
+
+else if(document.getElementById("first_options").textContent === "Library Assistant" && jobs.includes("Library Assistant") === false && jobCounter <= 2){
+    jobs.push("Library Assistant");
+    console.log(jobs)
+    ++jobCounter; 
+    console.log(jobCounter); 
+    document.getElementById("main_nav").style.display = 'block';
+    document.getElementById("options_div").style.display = 'none';
+}
 }
 
 function secondOption(){
@@ -110,8 +185,16 @@ function secondOption(){
         ++dormCounter; 
         console.log(dormCounter); 
     }
-     /*   else if (document.getElementById("second_options").textContent === "Current Clubs"){
-    } */ 
+    else if(document.getElementById("second_options").textContent === "Barista" && jobs.includes("Barista") === false && jobCounter <= 2){
+        jobs.push("Barista");
+        console.log(jobs)
+        ++jobCounter; 
+        console.log(jobCounter); 
+        document.getElementById("main_nav").style.display = 'block';
+        document.getElementById("options_div").style.display = 'none';
+    }
+  /*  else if(document.getElementById("second_options").textContent === "Current Clubs"){
+    }*/ 
     }
 
     function thirdOption(){
@@ -128,6 +211,14 @@ function secondOption(){
             document.getElementById("options_div").style.display = 'none';
             ++dormCounter; 
             console.log(dormCounter); 
+        }
+        else if(document.getElementById("third_options").textContent === "Campus Tour Guide" && jobs.includes("Campus Tour Guide") === false && jobCounter <= 2){
+            jobs.push("Campus Tour Guide");
+            console.log(jobs)
+            ++jobCounter; 
+            console.log(jobCounter); 
+            document.getElementById("main_nav").style.display = 'block';
+            document.getElementById("options_div").style.display = 'none';
         }
     }
 
@@ -146,6 +237,14 @@ function secondOption(){
             ++dormCounter; 
             console.log(dormCounter);
         }
+        else if(document.getElementById("fourth_options").textContent === "Resident Assistant" && jobs.includes("Resident Assistant") === false && jobCounter <= 2){
+            jobs.push("Resident Assistant");
+            console.log(jobs)
+            ++jobCounter; 
+            console.log(jobCounter); 
+            document.getElementById("main_nav").style.display = 'block';
+            document.getElementById("options_div").style.display = 'none';
+        }
     }
 
     function fifthOption(){
@@ -162,6 +261,14 @@ function secondOption(){
             document.getElementById("options_div").style.display = 'none';
             ++dormCounter; 
             console.log(dormCounter); 
+        }
+        else if(document.getElementById("fifth_options").textContent === "Tutor" && jobs.includes("Tutor") === false && jobCounter <= 2){
+            jobs.push("Tutor");
+            console.log(jobs)
+            ++jobCounter; 
+            console.log(jobCounter); 
+            document.getElementById("main_nav").style.display = 'block';
+            document.getElementById("options_div").style.display = 'none';
         }
     }
 
@@ -180,6 +287,14 @@ function secondOption(){
             ++dormCounter; 
             console.log(dormCounter); // Need to add finance system 
         }
+        else if(document.getElementById("sixth_options").textContent === "Café Worker" && jobs.includes("Café Worker") === false && jobCounter <= 2){
+            jobs.push("Café Worker");
+            console.log(jobs)
+            ++jobCounter; 
+            console.log(jobCounter); 
+            document.getElementById("main_nav").style.display = 'block';
+            document.getElementById("options_div").style.display = 'none';
+        }
     }
 
     function seventhOption(){
@@ -197,6 +312,14 @@ function secondOption(){
             ++dormCounter; 
             console.log(dormCounter); 
         }
+        else if(document.getElementById("seventh_options").textContent === "Research Assistant" && jobs.includes("Research Assistant") === false && jobCounter <= 2){
+            jobs.push("Research Assistant");
+            console.log(jobs)
+            ++jobCounter; 
+            console.log(jobCounter); 
+            document.getElementById("main_nav").style.display = 'block';
+            document.getElementById("options_div").style.display = 'none';
+        }
     }
 
     function eighthOption(){
@@ -213,6 +336,14 @@ function secondOption(){
             document.getElementById("options_div").style.display = 'none';
             ++dormCounter; 
             console.log(dormCounter); 
+        }
+        else if(document.getElementById("eighth_options").textContent === "Fitness Instructor" && jobs.includes("Fitness Instructor") === false && jobCounter <= 2){
+            jobs.push("Fitness Instructor");
+            console.log(jobs)
+            ++jobCounter; 
+            console.log(jobCounter); 
+            document.getElementById("main_nav").style.display = 'block';
+            document.getElementById("options_div").style.display = 'none';
         }
     }
 
@@ -277,7 +408,13 @@ console.log("Add Div to End Game Here");
 - Hover and Active of options_div still there 
 - Need Error Message for when you don't put first and last name 
 - Need Error Message for Pressing a Button Twice 
+- Remove hovers and actives from finances 
+- Need a way to remove stuff from clubs, jobs, internships
+- Add Financial Stuff to Dorms
 */ 
 
+/*Ideas
+- To quit jobs/internships/etc you just press current jobs, find it and there will be a quit button 
+*/
 
 
