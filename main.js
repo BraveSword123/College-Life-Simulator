@@ -15,6 +15,7 @@ let jobs = [];
 let grade; // May remove later
 let dormCounter = 0;  
 let jobCounter = 0; 
+let clubCounter = 0; 
 
 class main{
     constructor(first, last, gender, major){
@@ -46,7 +47,7 @@ function dorm_Button(){
 
     document.getElementById("title_options").textContent = "Dorms";
     document.getElementById("first_options").textContent = "Find Dormmates";
-    document.getElementById("second_options").textContent = "Current Dorms";
+    document.getElementById("second_options").textContent = "Current Dormmates";
     document.getElementById("third_options").textContent = " ";
     document.getElementById("fourth_options").textContent = " ";
     document.getElementById("fifth_options").textContent = " ";
@@ -74,15 +75,28 @@ function intern_Button(){
     document.getElementById("main_nav").style.display = 'none';
     document.getElementById("options_div").style.display = 'block';
 
+    if(hasInternship === false){
     document.getElementById("title_options").textContent = "Internships";   
-    document.getElementById("first_options").textContent = "Find Internships"; 
-    document.getElementById("second_options").textContent = "Current Internships";
+    document.getElementById("first_options").textContent = "Find Internship"; 
+    document.getElementById("second_options").textContent = " ";
     document.getElementById("third_options").textContent = " ";
     document.getElementById("fourth_options").textContent = " ";
     document.getElementById("fifth_options").textContent = " ";
     document.getElementById("sixth_options").textContent = " ";
     document.getElementById("seventh_options").textContent = " ";
     document.getElementById("eighth_options").textContent = " ";
+    }
+    if(hasInternship === true){
+        document.getElementById("title_options").textContent = "Internships";   
+        document.getElementById("first_options").textContent = "Current Internship"; 
+        document.getElementById("second_options").textContent = " ";
+        document.getElementById("third_options").textContent = " ";
+        document.getElementById("fourth_options").textContent = " ";
+        document.getElementById("fifth_options").textContent = " ";
+        document.getElementById("sixth_options").textContent = " ";
+        document.getElementById("seventh_options").textContent = " ";
+        document.getElementById("eighth_options").textContent = " ";
+}
 }
 
 function job_Button(){
@@ -113,11 +127,13 @@ function firstOption(){
         document.getElementById("eighth_options").textContent = "Music Club";
     }
 
-    else if(document.getElementById("first_options").textContent === "Programming Club" && clubs.includes("Programming Club") === false){ // Want to add something like if PC isn't in club 
+    else if(document.getElementById("first_options").textContent === "Programming Club" && clubs.includes("Programming Club") === false && clubCounter <= 4){
         clubs.push("Programming Club");
         console.log(clubs); 
         document.getElementById("main_nav").style.display = 'block';
         document.getElementById("options_div").style.display = 'none';
+        ++clubCounter;
+        console.log(clubCounter); 
 }
 
 else if(document.getElementById("first_options").textContent === "Find Dormmates"){
@@ -132,7 +148,7 @@ else if(document.getElementById("first_options").textContent === "Find Dormmates
     document.getElementById("eighth_options").textContent = "Adrian Foster";
 }
 
-else if(document.getElementById("first_options").textContent === "Ava Morgan" && dormMates.includes("Ava Morgan") === false && dormCounter <= 5){ // Want to add something like if PC isn't in club 
+else if(document.getElementById("first_options").textContent === "Ava Morgan" && dormMates.includes("Ava Morgan") === false && dormCounter <= 4){ // Want to add something like if PC isn't in club 
     dormMates.push("Ava Morgan");
     console.log(dormMates); 
     document.getElementById("main_nav").style.display = 'block';
@@ -141,7 +157,7 @@ else if(document.getElementById("first_options").textContent === "Ava Morgan" &&
     console.log(dormCounter);  
 }
 
-else if(document.getElementById("first_options").textContent === "Find Internships"){
+else if(document.getElementById("first_options").textContent === "Find Internship"){
 hasInternship = true; 
 document.getElementById("main_nav").style.display = 'block';
 document.getElementById("options_div").style.display = 'none';
@@ -171,13 +187,15 @@ else if(document.getElementById("first_options").textContent === "Library Assist
 }
 
 function secondOption(){
-    if(document.getElementById("second_options").textContent === "Social Justice Club" && clubs.includes("Social Justice Club") === false){
+    if(document.getElementById("second_options").textContent === "Social Justice Club" && clubs.includes("Social Justice Club") === false && clubCounter <= 4){
         clubs.push("Social Justice Club");
         console.log(clubs); 
         document.getElementById("main_nav").style.display = 'block';
         document.getElementById("options_div").style.display = 'none';
+        ++clubCounter;
+        console.log(clubCounter); 
     }
-    else if(document.getElementById("second_options").textContent === "Liam Carter" && dormMates.includes("Liam Carter") === false && dormCounter <= 5){ // Want to add something like if PC isn't in club 
+    else if(document.getElementById("second_options").textContent === "Liam Carter" && dormMates.includes("Liam Carter") === false && dormCounter <= 4){ // Want to add something like if PC isn't in club 
         dormMates.push("Liam Carter");
         console.log(dormMates); 
         document.getElementById("main_nav").style.display = 'block';
@@ -193,18 +211,200 @@ function secondOption(){
         document.getElementById("main_nav").style.display = 'block';
         document.getElementById("options_div").style.display = 'none';
     }
-  /*  else if(document.getElementById("second_options").textContent === "Current Clubs"){
-    }*/ 
+   else if(document.getElementById("second_options").textContent === "Current Clubs"){
+        if(clubs.length === 0){
+            document.getElementById("title_options").textContent = "Current Club";
+            document.getElementById("first_options").textContent = "No Current Clubs"; 
+            document.getElementById("second_options").textContent = " ";
+            document.getElementById("third_options").textContent = " ";
+            document.getElementById("fourth_options").textContent = " ";
+            document.getElementById("fifth_options").textContent = " ";
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
+        else if(clubs.length === 1){
+            document.getElementById("title_options").textContent = "Current Club";
+            document.getElementById("first_options").textContent = clubs[0];
+            document.getElementById("second_options").textContent = " ";
+            document.getElementById("third_options").textContent = " ";
+            document.getElementById("fourth_options").textContent = " ";
+            document.getElementById("fifth_options").textContent = " ";
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
+        else if(clubs.length === 2){
+            document.getElementById("title_options").textContent = "Current Clubs";
+            document.getElementById("first_options").textContent = clubs[0];
+            document.getElementById("second_options").textContent = clubs[1]; 
+            document.getElementById("third_options").textContent = " ";
+            document.getElementById("fourth_options").textContent = " ";
+            document.getElementById("fifth_options").textContent = " ";
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
+        else if(clubs.length === 3){
+            document.getElementById("title_options").textContent = "Current Clubs";
+            document.getElementById("first_options").textContent = clubs[0];
+            document.getElementById("second_options").textContent = clubs[1]; 
+            document.getElementById("third_options").textContent = clubs[2];
+            document.getElementById("fourth_options").textContent = " ";
+            document.getElementById("fifth_options").textContent = " ";
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
+        else if(clubs.length === 4){
+            document.getElementById("title_options").textContent = "Current Clubs";
+            document.getElementById("first_options").textContent = clubs[0];
+            document.getElementById("second_options").textContent = clubs[1]; 
+            document.getElementById("third_options").textContent = clubs[2];
+            document.getElementById("fourth_options").textContent = clubs[3];
+            document.getElementById("fifth_options").textContent = " ";
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
+        else if(clubs.length === 5){
+            document.getElementById("title_options").textContent = "Current Clubs";
+            document.getElementById("first_options").textContent = clubs[0];
+            document.getElementById("second_options").textContent = clubs[1]; 
+            document.getElementById("third_options").textContent = clubs[2];
+            document.getElementById("fourth_options").textContent = clubs[3];
+            document.getElementById("fifth_options").textContent = clubs[4];
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
+    } 
+    else if(document.getElementById("second_options").textContent === "Current Dormmates"){  
+        if(dormMates.length === 0){
+            document.getElementById("title_options").textContent = "Current Dormmates";
+            document.getElementById("first_options").textContent = "No Current Dormmates"; 
+            document.getElementById("second_options").textContent = " ";
+            document.getElementById("third_options").textContent = " ";
+            document.getElementById("fourth_options").textContent = " ";
+            document.getElementById("fifth_options").textContent = " ";
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
+        else if(dormMates.length === 1){
+            document.getElementById("title_options").textContent = "Current Dormmates";
+            document.getElementById("first_options").textContent = dormMates[0];
+            document.getElementById("second_options").textContent = " ";
+            document.getElementById("third_options").textContent = " ";
+            document.getElementById("fourth_options").textContent = " ";
+            document.getElementById("fifth_options").textContent = " ";
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
+        else if(dormMates.length === 2){
+            document.getElementById("title_options").textContent = "Current Dormmates";
+            document.getElementById("first_options").textContent = dormMates[0];
+            document.getElementById("second_options").textContent = dormMates[1]; 
+            document.getElementById("third_options").textContent = " ";
+            document.getElementById("fourth_options").textContent = " ";
+            document.getElementById("fifth_options").textContent = " ";
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
+        else if(dormMates.length === 3){
+            document.getElementById("title_options").textContent = "Current Dormmates";
+            document.getElementById("first_options").textContent = dormMates[0];
+            document.getElementById("second_options").textContent = dormMates[1]; 
+            document.getElementById("third_options").textContent = dormMates[2];
+            document.getElementById("fourth_options").textContent = " ";
+            document.getElementById("fifth_options").textContent = " ";
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
+        else if(dormMates.length === 4){
+            document.getElementById("title_options").textContent = "Current Dormmates";
+            document.getElementById("first_options").textContent = dormMates[0];
+            document.getElementById("second_options").textContent = dormMates[1]; 
+            document.getElementById("third_options").textContent = dormMates[2];
+            document.getElementById("fourth_options").textContent = dormMates[3];
+            document.getElementById("fifth_options").textContent = " ";
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
+        else if(dormMates.length === 5){
+            document.getElementById("title_options").textContent = "Current Dormmates";
+            document.getElementById("first_options").textContent = dormMates[0];
+            document.getElementById("second_options").textContent = dormMates[1]; 
+            document.getElementById("third_options").textContent = dormMates[2];
+            document.getElementById("fourth_options").textContent = dormMates[3];
+            document.getElementById("fifth_options").textContent = dormMates[4];
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
+    } 
+    else if(document.getElementById("second_options").textContent === "Current Jobs"){
+        if(jobs.length === 0){
+            document.getElementById("title_options").textContent = "Current Jobs";
+            document.getElementById("first_options").textContent = "No Current Jobs"; 
+            document.getElementById("second_options").textContent = " ";
+            document.getElementById("third_options").textContent = " ";
+            document.getElementById("fourth_options").textContent = " ";
+            document.getElementById("fifth_options").textContent = " ";
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
+        else if(jobs.length === 1){
+            document.getElementById("title_options").textContent = "Current Jobs";
+            document.getElementById("first_options").textContent = jobs[0];
+            document.getElementById("second_options").textContent = " ";
+            document.getElementById("third_options").textContent = " ";
+            document.getElementById("fourth_options").textContent = " ";
+            document.getElementById("fifth_options").textContent = " ";
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
+        else if(jobs.length === 2){
+            document.getElementById("title_options").textContent = "Current Jobs";
+            document.getElementById("first_options").textContent = jobs[0];
+            document.getElementById("second_options").textContent = jobs[1]; 
+            document.getElementById("third_options").textContent = " ";
+            document.getElementById("fourth_options").textContent = " ";
+            document.getElementById("fifth_options").textContent = " ";
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
+        else if(jobs.length === 3){
+            document.getElementById("title_options").textContent = "Current Jobs";
+            document.getElementById("first_options").textContent = jobs[0];
+            document.getElementById("second_options").textContent = jobs[1]; 
+            document.getElementById("third_options").textContent = jobs[2];
+            document.getElementById("fourth_options").textContent = " ";
+            document.getElementById("fifth_options").textContent = " ";
+            document.getElementById("sixth_options").textContent = " ";
+            document.getElementById("seventh_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " ";
+        }
     }
+}
 
     function thirdOption(){
-        if(document.getElementById("third_options").textContent === "Debate Club" && clubs.includes("Debate Club") === false){
+        if(document.getElementById("third_options").textContent === "Debate Club" && clubs.includes("Debate Club") === false && clubCounter <= 4){
             clubs.push("Debate Club");
             console.log(clubs); 
             document.getElementById("main_nav").style.display = 'block';
             document.getElementById("options_div").style.display = 'none';
+            ++clubCounter;
+            console.log(clubCounter); 
         }
-        else if(document.getElementById("third_options").textContent === "Chloe Bennett" && dormMates.includes("Chloe Bennett") === false && dormCounter <= 5){ // Want to add something like if PC isn't in club 
+        else if(document.getElementById("third_options").textContent === "Chloe Bennett" && dormMates.includes("Chloe Bennett") === false && dormCounter <= 4){ // Want to add something like if PC isn't in club 
             dormMates.push("Chloe Bennett");
             console.log(dormMates); 
             document.getElementById("main_nav").style.display = 'block';
@@ -223,13 +423,15 @@ function secondOption(){
     }
 
     function fourthOption(){
-        if(document.getElementById("fourth_options").textContent === "Art Club" && clubs.includes("Art Club") === false){
+        if(document.getElementById("fourth_options").textContent === "Art Club" && clubs.includes("Art Club") === false && clubCounter <= 4){
             clubs.push("Art Club");
             console.log(clubs); 
             document.getElementById("main_nav").style.display = 'block';
             document.getElementById("options_div").style.display = 'none';
+            ++clubCounter;
+            console.log(clubCounter); 
         }
-        else if(document.getElementById("fourth_options").textContent === "Ethan Brooks" && dormMates.includes("Ethan Brooks") === false  && dormCounter <= 5){ // Want to add something like if PC isn't in club 
+        else if(document.getElementById("fourth_options").textContent === "Ethan Brooks" && dormMates.includes("Ethan Brooks") === false  && dormCounter <= 4){ // Want to add something like if PC isn't in club 
             dormMates.push("Ethan Brooks");
             console.log(dormMates); 
             document.getElementById("main_nav").style.display = 'block';
@@ -248,13 +450,15 @@ function secondOption(){
     }
 
     function fifthOption(){
-        if(document.getElementById("fifth_options").textContent === "Finance Club" && clubs.includes("Finance Club") === false){
+        if(document.getElementById("fifth_options").textContent === "Finance Club" && clubs.includes("Finance Club") === false && clubCounter <= 4){
             clubs.push("Finance Club");
             console.log(clubs); 
             document.getElementById("main_nav").style.display = 'block';
             document.getElementById("options_div").style.display = 'none';
+            ++clubCounter;
+            console.log(clubCounter); 
         }
-        else if(document.getElementById("fifth_options").textContent === "Isla Hayes" && dormMates.includes("Isla Hayes") === false  && dormCounter <= 5){ 
+        else if(document.getElementById("fifth_options").textContent === "Isla Hayes" && dormMates.includes("Isla Hayes") === false  && dormCounter <= 4){ 
             dormMates.push("Isla Hayes");
             console.log(dormMates); 
             document.getElementById("main_nav").style.display = 'block';
@@ -273,13 +477,15 @@ function secondOption(){
     }
 
     function sixthOption(){
-        if(document.getElementById("sixth_options").textContent === "Psychology Club" && clubs.includes("Psychology Club") === false){
+        if(document.getElementById("sixth_options").textContent === "Psychology Club" && clubs.includes("Psychology Club") === false && clubCounter <= 4){
             clubs.push("Psychology Club");
             console.log(clubs); 
             document.getElementById("main_nav").style.display = 'block';
             document.getElementById("options_div").style.display = 'none';
+            ++clubCounter;
+            console.log(clubCounter); 
         }
-        else if(document.getElementById("sixth_options").textContent === "Nathan Reyes" && dormMates.includes("Nathan Reyes") === false  && dormCounter <= 5){ 
+        else if(document.getElementById("sixth_options").textContent === "Nathan Reyes" && dormMates.includes("Nathan Reyes") === false  && dormCounter <= 4){ 
             dormMates.push("Nathan Reyes");
             console.log(dormMates); 
             document.getElementById("main_nav").style.display = 'block';
@@ -298,13 +504,15 @@ function secondOption(){
     }
 
     function seventhOption(){
-        if(document.getElementById("seventh_options").textContent === "Drama Club" && clubs.includes("Drama Club") === false){
+        if(document.getElementById("seventh_options").textContent === "Drama Club" && clubs.includes("Drama Club") === false && clubCounter <= 4){
             clubs.push("Drama Club");
             console.log(clubs); 
             document.getElementById("main_nav").style.display = 'block';
             document.getElementById("options_div").style.display = 'none';
+            ++clubCounter;
+            console.log(clubCounter); 
         }
-        else if(document.getElementById("seventh_options").textContent === "Maya Dawson" && dormMates.includes("Maya Dawson") === false  && dormCounter <= 5){ 
+        else if(document.getElementById("seventh_options").textContent === "Maya Dawson" && dormMates.includes("Maya Dawson") === false  && dormCounter <= 4){ 
             dormMates.push("Maya Dawson");
             console.log(dormMates); 
             document.getElementById("main_nav").style.display = 'block';
@@ -323,13 +531,15 @@ function secondOption(){
     }
 
     function eighthOption(){
-        if(document.getElementById("eighth_options").textContent === "Music Club" && clubs.includes("Music Club") === false){
+        if(document.getElementById("eighth_options").textContent === "Music Club" && clubs.includes("Music Club") === false && clubCounter <= 4){
             clubs.push("Music Club");
             console.log(clubs); 
             document.getElementById("main_nav").style.display = 'block';
             document.getElementById("options_div").style.display = 'none';
+            ++clubCounter;
+            console.log(clubCounter); 
         }
-        else if(document.getElementById("seventh_options").textContent === "Adrian Foster" && dormMates.includes("Adrian Foster") === false  && dormCounter <= 5){ 
+        else if(document.getElementById("eighth_options").textContent === "Adrian Foster" && dormMates.includes("Adrian Foster") === false  && dormCounter <= 4){ 
             dormMates.push("Adrian Foster");
             console.log(dormMates); 
             document.getElementById("main_nav").style.display = 'block';
@@ -415,6 +625,10 @@ console.log("Add Div to End Game Here");
 
 /*Ideas
 - To quit jobs/internships/etc you just press current jobs, find it and there will be a quit button 
+- To Output Current, Use counter and if statement 
+    - Also need to add limits to number of clubs 
+    - If array.size = 1 then output 1 
+    - If array.size = 2 output 2 
 */
 
 
