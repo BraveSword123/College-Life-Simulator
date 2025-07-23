@@ -629,6 +629,30 @@ console.log("Add Div to End Game Here");
     - Also need to add limits to number of clubs 
     - If array.size = 1 then output 1 
     - If array.size = 2 output 2 
+
+- For Clubs
+    - Work Harder    (Work Hard 3 times to get leadership position ) (Securtary, Treasurer, VP, Pres)
+    - Slack Off  (Slack off 3 times and to be asked to leave club)
+    - Make Friends (Probably will just have a randomized name rather than a list)
+    - Quit Club 
+
+- For Internship/Jobs  (Need Programming for When you get raise/fired )
+   - Work Harder    (Work Hard 3 times and be promoted)
+   - Make Friends (Probably will just have a randomized name rather than a list)
+   - Slack Off  (Slack off 3 times and be fired)
+   - Quit Job 
+
+- For Roommates 
+    - Befriend 
+    - Become Enemies 
+    - Start Dating  
+
+- For School 
+ - Work Hard 
+ - Slack Off
+ - Make Friends 
+
+- We can change it from friends to relationships (Friends, Enemies, Partners )
 */
 
 
