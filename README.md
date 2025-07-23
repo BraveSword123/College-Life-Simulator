@@ -34,6 +34,6 @@ College Life is a browser-based life simulation game where players step into the
 <img width="3000" height="1716" alt="image" src="https://github.com/user-attachments/assets/174670b8-6e73-4860-b8b4-c801e873f354" />
 
 ---
-# 💓Thank you so much for looking at my project!💓 I put a lot of effort into it, so I appreciate it! (˶ᵔ ᵕ ᵔ˶)
+### 💓Thank you so much for looking at my project!💓 I put a lot of effort into it, so I appreciate it! (˶ᵔ ᵕ ᵔ˶)
 
 
