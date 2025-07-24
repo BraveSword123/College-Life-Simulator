@@ -10,12 +10,21 @@ let semester = "Fall";
 let dormMates = []; 
 let clubs = []; 
 let friends = []; 
-let hasInternship = false;  
 let jobs = []; 
+let friend = []; 
+let enemies = []; 
+let partner = "None"; 
+let hasInternship = false;  
 let grade; // May remove later
 let dormCounter = 0;  
 let jobCounter = 0; 
 let clubCounter = 0; 
+let friendCounter = 0; 
+let enemyCounter = 0; 
+let classMates = ["Ava Morgan", "Liam Carter", "Chloe Bennett", "Ethan Brooks", "Isla Hayes", "Nathan Reyes", "Maya Dawson", "Adrian Foster"]; 
+let shipHolder; 
+
+let first = 1; // Test
 
 class main{
     constructor(first, last, gender, major){
@@ -114,6 +123,52 @@ function job_Button(){
     document.getElementById("eighth_options").textContent = " ";
 }
 
+function relationships_Button(){
+    document.getElementById("main_nav").style.display = 'none';
+    document.getElementById("options_div").style.display = 'block';
+    document.getElementById("title_options").textContent = "Relationships";
+   /* for(let i = 0; i <= 8; i++){
+        // If the previous is not equal to " ", then go to the next div and write our next friend 
+        // Start with friends, if we reach the end of the friend array, start enemies, if we reach the end of enemies, write down partner 
+        } */ 
+
+    if(friend.length === 0 && enemies.length === 0 && partner === "None"){
+        document.getElementById("first_options").textContent = "No Relationships"; 
+        document.getElementById("second_options").textContent = " ";
+        document.getElementById("third_options").textContent = " ";
+        document.getElementById("fourth_options").textContent = " ";
+        document.getElementById("fifth_options").textContent = " ";
+        document.getElementById("sixth_options").textContent = " ";
+        document.getElementById("seventh_options").textContent = " ";
+        document.getElementById("eighth_options").textContent = " ";
+
+    }
+    console.log(friend.size); 
+    console.log(enemies.size); 
+     /* for(let i = 0; i <= friend.size; i++){
+        if(i == 0){
+        document.getElementById("first_options").textContent = friends[i] + " Friend";
+        }
+        else if(i == 1){
+            document.getElementById("second_options").textContent = friends[i] + " Friend";
+            }
+        else if(i == 2){
+            document.getElementById("third_options").textContent = friends[i] + " Friend";
+        }
+        else if(i == 3){
+            document.getElementById("fourth_options").textContent = friends[i] + " Friend";
+        }
+        else{
+            document.getElementById("fourth_options").textContent = " ";
+        }
+      } // Add Enemies and Partner */ 
+    
+    // We need to know how many friends and enemies we have (array.size) 
+    // Then we need to use that for output, Like if we have 2 
+    // I'm actually dumb, I should have used an array for all of this stuff 
+
+}
+
 function firstOption(){
     if(document.getElementById("first_options").textContent === "Join Clubs"){
         document.getElementById("title_options").textContent = "Join Clubs";
@@ -184,6 +239,30 @@ else if(document.getElementById("first_options").textContent === "Library Assist
     document.getElementById("main_nav").style.display = 'block';
     document.getElementById("options_div").style.display = 'none';
 }
+    // If the name is _________ or ___________ or ..... then write befriend, make enemy, start dating
+     // Need to specify which character it is!!! 
+     // If textContent = an element in classMates[] and (textConent of title is Current Dormmates) (We will add or to this once I program relationships for club/internships/jobs)
+    // else if(document.getElementById("first_options").textContent === "Ava Morgan" || document.getElementById("first_options").textContent === "Liam Carter" || document.getElementById("first_options").textContent === "Chloe Bennett" || document.getElementById("first_options").textContent === "Ethan Brooks" || document.getElementById("first_options").textContent === "Isla Hayes" || document.getElementById("first_options").textContent === "Nathan Reyes" || document.getElementById("first_options").textContent === "Maya Dawson" || document.getElementById("first_options").textContent === "Adrian Foster"){
+     else if(classMates.includes(document.getElementById("first_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later  
+        shipHolder = document.getElementById("first_options").textContent; 
+        document.getElementById("title_options").textContent = "Relationships";
+        document.getElementById("first_options").textContent = "Befriend";
+        document.getElementById("second_options").textContent = "Make Enemy"; 
+        document.getElementById("third_options").textContent = "Start Dating";
+        document.getElementById("fourth_options").textContent = " ";
+        document.getElementById("fifth_options").textContent = " ";
+        document.getElementById("sixth_options").textContent = " ";
+        document.getElementById("seventh_options").textContent = " ";
+        document.getElementById("eighth_options").textContent = " "; 
+} 
+    else if(document.getElementById("first_options").textContent === "Befriend" && friends.includes(shipHolder) === false && friendCounter <= 3){
+    document.getElementById("main_nav").style.display = 'block';
+    document.getElementById("options_div").style.display = 'none';
+
+    friends.push(shipHolder); 
+    console.log(friends);
+    ++friendCounter;  
+}
 }
 
 function secondOption(){
@@ -211,6 +290,7 @@ function secondOption(){
         document.getElementById("main_nav").style.display = 'block';
         document.getElementById("options_div").style.display = 'none';
     }
+    // Change to Array Later 
    else if(document.getElementById("second_options").textContent === "Current Clubs"){
         if(clubs.length === 0){
             document.getElementById("title_options").textContent = "Current Club";
@@ -279,6 +359,7 @@ function secondOption(){
             document.getElementById("eighth_options").textContent = " ";
         }
     } 
+      // Change to Array Later 
     else if(document.getElementById("second_options").textContent === "Current Dormmates"){  
         if(dormMates.length === 0){
             document.getElementById("title_options").textContent = "Current Dormmates";
@@ -300,7 +381,7 @@ function secondOption(){
             document.getElementById("fifth_options").textContent = " ";
             document.getElementById("sixth_options").textContent = " ";
             document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " ";
+            document.getElementById("eighth_options").textContent = " "; 
         }
         else if(dormMates.length === 2){
             document.getElementById("title_options").textContent = "Current Dormmates";
@@ -393,6 +474,26 @@ function secondOption(){
             document.getElementById("eighth_options").textContent = " ";
         }
     }
+    else if(classMates.includes(document.getElementById("second_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later 
+        shipHolder = document.getElementById("second_options").textContent; 
+        document.getElementById("title_options").textContent = "Relationships";
+        document.getElementById("first_options").textContent = "Befriend";
+        document.getElementById("second_options").textContent = "Make Enemy"; 
+        document.getElementById("third_options").textContent = "Start Dating";
+        document.getElementById("fourth_options").textContent = " ";
+        document.getElementById("fifth_options").textContent = " ";
+        document.getElementById("sixth_options").textContent = " ";
+        document.getElementById("seventh_options").textContent = " ";
+        document.getElementById("eighth_options").textContent = " ";
+}
+else if(document.getElementById("second_options").textContent === "Make Enemy" && friends.includes(shipHolder) === false && enemyCounter <= 2){
+    document.getElementById("main_nav").style.display = 'block';
+    document.getElementById("options_div").style.display = 'none';
+
+    enemies.push(shipHolder); 
+    console.log(enemies); 
+    ++enemyCounter; 
+} 
 }
 
     function thirdOption(){
@@ -420,6 +521,26 @@ function secondOption(){
             document.getElementById("main_nav").style.display = 'block';
             document.getElementById("options_div").style.display = 'none';
         }
+            // If the name is _________ or ___________ or ..... then write befriend, make enemy, start dating
+            else if(classMates.includes(document.getElementById("third_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later 
+                shipHolder = document.getElementById("third_options").textContent; 
+                document.getElementById("title_options").textContent = "Relationships";
+                document.getElementById("first_options").textContent = "Befriend";
+                document.getElementById("second_options").textContent = "Make Enemy"; 
+                document.getElementById("third_options").textContent = "Start Dating";
+                document.getElementById("fourth_options").textContent = " ";
+                document.getElementById("fifth_options").textContent = " ";
+                document.getElementById("sixth_options").textContent = " ";
+                document.getElementById("seventh_options").textContent = " ";
+                document.getElementById("eighth_options").textContent = " ";
+        } 
+        else if(document.getElementById("third_options").textContent === "Start Dating" && partner != shipHolder){
+            document.getElementById("main_nav").style.display = 'block';
+            document.getElementById("options_div").style.display = 'none';
+        
+            partner = shipHolder; 
+            console.log(partner); 
+        } 
     }
 
     function fourthOption(){
@@ -447,6 +568,19 @@ function secondOption(){
             document.getElementById("main_nav").style.display = 'block';
             document.getElementById("options_div").style.display = 'none';
         }
+            // If the name is _________ or ___________ or ..... then write befriend, make enemy, start dating
+            else if(classMates.includes(document.getElementById("fourth_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later 
+                shipHolder = document.getElementById("fourth_options").textContent; 
+                document.getElementById("title_options").textContent = "Relationships";
+                document.getElementById("first_options").textContent = "Befriend";
+                document.getElementById("second_options").textContent = "Make Enemy"; 
+                document.getElementById("third_options").textContent = "Start Dating";
+                document.getElementById("fourth_options").textContent = " ";
+                document.getElementById("fifth_options").textContent = " ";
+                document.getElementById("sixth_options").textContent = " ";
+                document.getElementById("seventh_options").textContent = " ";
+                document.getElementById("eighth_options").textContent = " ";
+        } 
     }
 
     function fifthOption(){
@@ -474,6 +608,19 @@ function secondOption(){
             document.getElementById("main_nav").style.display = 'block';
             document.getElementById("options_div").style.display = 'none';
         }
+            // If the name is _________ or ___________ or ..... then write befriend, make enemy, start dating
+            else if(classMates.includes(document.getElementById("fifth_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later 
+                shipHolder = document.getElementById("fifth_options").textContent; 
+                document.getElementById("title_options").textContent = "Relationships";
+                document.getElementById("first_options").textContent = "Befriend";
+                document.getElementById("second_options").textContent = "Make Enemy"; 
+                document.getElementById("third_options").textContent = "Start Dating";
+                document.getElementById("fourth_options").textContent = " ";
+                document.getElementById("fifth_options").textContent = " ";
+                document.getElementById("sixth_options").textContent = " ";
+                document.getElementById("seventh_options").textContent = " ";
+                document.getElementById("eighth_options").textContent = " ";
+        } 
     }
 
     function sixthOption(){
@@ -501,6 +648,19 @@ function secondOption(){
             document.getElementById("main_nav").style.display = 'block';
             document.getElementById("options_div").style.display = 'none';
         }
+            // If the name is _________ or ___________ or ..... then write befriend, make enemy, start dating
+            else if(classMates.includes(document.getElementById("sixth_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later 
+                shipHolder = document.getElementById("sixth_options").textContent; 
+                document.getElementById("title_options").textContent = "Relationships";
+                document.getElementById("first_options").textContent = "Befriend";
+                document.getElementById("second_options").textContent = "Make Enemy"; 
+                document.getElementById("third_options").textContent = "Start Dating";
+                document.getElementById("fourth_options").textContent = " ";
+                document.getElementById("fifth_options").textContent = " ";
+                document.getElementById("sixth_options").textContent = " ";
+                document.getElementById("seventh_options").textContent = " ";
+                document.getElementById("eighth_options").textContent = " ";
+        } 
     }
 
     function seventhOption(){
@@ -528,6 +688,19 @@ function secondOption(){
             document.getElementById("main_nav").style.display = 'block';
             document.getElementById("options_div").style.display = 'none';
         }
+            // If the name is _________ or ___________ or ..... then write befriend, make enemy, start dating
+            else if(classMates.includes(document.getElementById("seventh_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later 
+                shipHolder = document.getElementById("seventh_options").textContent; 
+                document.getElementById("title_options").textContent = "Relationships";
+                document.getElementById("first_options").textContent = "Befriend";
+                document.getElementById("second_options").textContent = "Make Enemy"; 
+                document.getElementById("third_options").textContent = "Start Dating";
+                document.getElementById("fourth_options").textContent = " ";
+                document.getElementById("fifth_options").textContent = " ";
+                document.getElementById("sixth_options").textContent = " ";
+                document.getElementById("seventh_options").textContent = " ";
+                document.getElementById("eighth_options").textContent = " ";
+        } 
     }
 
     function eighthOption(){
@@ -555,6 +728,19 @@ function secondOption(){
             document.getElementById("main_nav").style.display = 'block';
             document.getElementById("options_div").style.display = 'none';
         }
+            // If the name is _________ or ___________ or ..... then write befriend, make enemy, start dating
+            else if(classMates.includes(document.getElementById("eighth_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later 
+                shipHolder = document.getElementById("eighth_options").textContent; 
+                document.getElementById("title_options").textContent = "Relationships";
+                document.getElementById("first_options").textContent = "Befriend";
+                document.getElementById("second_options").textContent = "Make Enemy"; 
+                document.getElementById("third_options").textContent = "Start Dating";
+                document.getElementById("fourth_options").textContent = " ";
+                document.getElementById("fifth_options").textContent = " ";
+                document.getElementById("sixth_options").textContent = " ";
+                document.getElementById("seventh_options").textContent = " ";
+                document.getElementById("eighth_options").textContent = " ";
+        } 
     }
 
     function goBack(){
@@ -604,7 +790,7 @@ else if(semester === "Summer"){
     semester = "Fall";
     document.getElementById("semester_div").textContent = semester;
 }
-else if(i === 50){
+else if(i === 16){ // Was 50 Before 
 console.log("Add Div to End Game Here"); 
 }
 }
@@ -653,6 +839,28 @@ console.log("Add Div to End Game Here");
  - Make Friends 
 
 - We can change it from friends to relationships (Friends, Enemies, Partners )
+
+If I want to mae this game easier to program, I am going yo need a limited number of friends 
+- We only want 8 for everything 
+But how can you make friends from clubs if there is 8 clubs and only 8 friends 
+8 clubs, 1 internship, 8 part time jobs
+ - 8 friends 
+
+
+ - How are we going to do working hard, because how will we know whether the work hard came from Jobs, Internships, Clubs, etc. 
+    - Probably Add something to my text
+        - Work hard at job
+        - Work hard at Internship
+        - Work hard at club 
+
+
+Maybe if something is in 
+
+Only 8 relationships (1 partner, 4 friends, 3 enemies)
+
+Can't be someones enemy and partner 
+
+Need a main and options back_button
 */
 
 
