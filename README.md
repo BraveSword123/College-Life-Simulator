@@ -16,16 +16,21 @@ College Life is a browser-based life simulation game where players step into the
 
 📈 Dynamic content loading per category (Clubs, Dorms, Jobs, etc.)
 
+💸 Simulated finances and earnings
+
+🔁 Progress through semesters (Fall, Winter, Spring, Summer)
+
 ---
 
 ## Features I am Currently Working On 
 ❤️ Relationship system (friends, enemies, partners)
-
 📓 Club/job performance system (slack off, work hard, get promoted/fired).
 
-💸 Simulated finances and earnings
+--- 
+## How to Play the Game 
+Begin by selecting your first name, last name, major, and gender. Once you've entered this information, you'll have the opportunity to find jobs and internships, as well as make friends, enemies, and partners among your dorm members. Acquiring jobs, internships, and dormmates will help you maintain your income. Spend the 16 semesters available to you building relationships and managing your finances.
 
-🔁 Progress through semesters (Fall, Winter, Spring, Summer)
+--- 
 
 ## 📷 Screenshots
 <img width="2048" height="1167" alt="image" src="https://github.com/user-attachments/assets/e3cf7273-4dc2-44ec-8f8a-5a2f089290a6" />
