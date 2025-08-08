@@ -372,72 +372,6 @@ else{
         }
     }
 }
-  /*      if(clubs.length === 0){
-            document.getElementById("title_options").textContent = "Current Club";
-            document.getElementById("first_options").textContent = "No Current Clubs"; 
-            document.getElementById("second_options").textContent = " ";
-            document.getElementById("third_options").textContent = " ";
-            document.getElementById("fourth_options").textContent = " ";
-            document.getElementById("fifth_options").textContent = " ";
-            document.getElementById("sixth_options").textContent = " ";
-            document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " ";
-        }
-        else if(clubs.length === 1){
-            document.getElementById("title_options").textContent = "Current Club";
-            document.getElementById("first_options").textContent = clubs[0];
-            document.getElementById("second_options").textContent = " ";
-            document.getElementById("third_options").textContent = " ";
-            document.getElementById("fourth_options").textContent = " ";
-            document.getElementById("fifth_options").textContent = " ";
-            document.getElementById("sixth_options").textContent = " ";
-            document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " ";
-        }
-        else if(clubs.length === 2){
-            document.getElementById("title_options").textContent = "Current Clubs";
-            document.getElementById("first_options").textContent = clubs[0];
-            document.getElementById("second_options").textContent = clubs[1]; 
-            document.getElementById("third_options").textContent = " ";
-            document.getElementById("fourth_options").textContent = " ";
-            document.getElementById("fifth_options").textContent = " ";
-            document.getElementById("sixth_options").textContent = " ";
-            document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " ";
-        }
-        else if(clubs.length === 3){
-            document.getElementById("title_options").textContent = "Current Clubs";
-            document.getElementById("first_options").textContent = clubs[0];
-            document.getElementById("second_options").textContent = clubs[1]; 
-            document.getElementById("third_options").textContent = clubs[2];
-            document.getElementById("fourth_options").textContent = " ";
-            document.getElementById("fifth_options").textContent = " ";
-            document.getElementById("sixth_options").textContent = " ";
-            document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " ";
-        }
-        else if(clubs.length === 4){
-            document.getElementById("title_options").textContent = "Current Clubs";
-            document.getElementById("first_options").textContent = clubs[0];
-            document.getElementById("second_options").textContent = clubs[1]; 
-            document.getElementById("third_options").textContent = clubs[2];
-            document.getElementById("fourth_options").textContent = clubs[3];
-            document.getElementById("fifth_options").textContent = " ";
-            document.getElementById("sixth_options").textContent = " ";
-            document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " ";
-        }
-        else if(clubs.length === 5){
-            document.getElementById("title_options").textContent = "Current Clubs";
-            document.getElementById("first_options").textContent = clubs[0];
-            document.getElementById("second_options").textContent = clubs[1]; 
-            document.getElementById("third_options").textContent = clubs[2];
-            document.getElementById("fourth_options").textContent = clubs[3];
-            document.getElementById("fifth_options").textContent = clubs[4];
-            document.getElementById("sixth_options").textContent = " ";
-            document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " ";
-        } */ 
     } 
       // Change to Array Later 
     else if(document.getElementById("second_options").textContent === "Current Dormmates"){  
@@ -464,62 +398,6 @@ else{
         }
     }
 }
-    /*
-        else if(dormMates.length === 1){
-            document.getElementById("title_options").textContent = "Current Dormmates";
-            document.getElementById("first_options").textContent = dormMates[0];
-            document.getElementById("second_options").textContent = " ";
-            document.getElementById("third_options").textContent = " ";
-            document.getElementById("fourth_options").textContent = " ";
-            document.getElementById("fifth_options").textContent = " ";
-            document.getElementById("sixth_options").textContent = " ";
-            document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " "; 
-        }
-        else if(dormMates.length === 2){
-            document.getElementById("title_options").textContent = "Current Dormmates";
-            document.getElementById("first_options").textContent = dormMates[0];
-            document.getElementById("second_options").textContent = dormMates[1]; 
-            document.getElementById("third_options").textContent = " ";
-            document.getElementById("fourth_options").textContent = " ";
-            document.getElementById("fifth_options").textContent = " ";
-            document.getElementById("sixth_options").textContent = " ";
-            document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " ";
-        }
-        else if(dormMates.length === 3){
-            document.getElementById("title_options").textContent = "Current Dormmates";
-            document.getElementById("first_options").textContent = dormMates[0];
-            document.getElementById("second_options").textContent = dormMates[1]; 
-            document.getElementById("third_options").textContent = dormMates[2];
-            document.getElementById("fourth_options").textContent = " ";
-            document.getElementById("fifth_options").textContent = " ";
-            document.getElementById("sixth_options").textContent = " ";
-            document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " ";
-        }
-        else if(dormMates.length === 4){
-            document.getElementById("title_options").textContent = "Current Dormmates";
-            document.getElementById("first_options").textContent = dormMates[0];
-            document.getElementById("second_options").textContent = dormMates[1]; 
-            document.getElementById("third_options").textContent = dormMates[2];
-            document.getElementById("fourth_options").textContent = dormMates[3];
-            document.getElementById("fifth_options").textContent = " ";
-            document.getElementById("sixth_options").textContent = " ";
-            document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " ";
-        }
-        else if(dormMates.length === 5){
-            document.getElementById("title_options").textContent = "Current Dormmates";
-            document.getElementById("first_options").textContent = dormMates[0];
-            document.getElementById("second_options").textContent = dormMates[1]; 
-            document.getElementById("third_options").textContent = dormMates[2];
-            document.getElementById("fourth_options").textContent = dormMates[3];
-            document.getElementById("fifth_options").textContent = dormMates[4];
-            document.getElementById("sixth_options").textContent = " ";
-            document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " ";
-        }*/ 
     } 
     else if(document.getElementById("second_options").textContent === "Current Jobs"){
         if(jobs.length === 0){
@@ -544,50 +422,6 @@ else{
     }
 }
 
-  /*      if(jobs.length === 0){
-            document.getElementById("title_options").textContent = "Current Jobs";
-            document.getElementById("first_options").textContent = "No Current Jobs"; 
-            document.getElementById("second_options").textContent = " ";
-            document.getElementById("third_options").textContent = " ";
-            document.getElementById("fourth_options").textContent = " ";
-            document.getElementById("fifth_options").textContent = " ";
-            document.getElementById("sixth_options").textContent = " ";
-            document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " ";
-        }
-        else if(jobs.length === 1){
-            document.getElementById("title_options").textContent = "Current Jobs";
-            document.getElementById("first_options").textContent = jobs[0];
-            document.getElementById("second_options").textContent = " ";
-            document.getElementById("third_options").textContent = " ";
-            document.getElementById("fourth_options").textContent = " ";
-            document.getElementById("fifth_options").textContent = " ";
-            document.getElementById("sixth_options").textContent = " ";
-            document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " ";
-        }
-        else if(jobs.length === 2){
-            document.getElementById("title_options").textContent = "Current Jobs";
-            document.getElementById("first_options").textContent = jobs[0];
-            document.getElementById("second_options").textContent = jobs[1]; 
-            document.getElementById("third_options").textContent = " ";
-            document.getElementById("fourth_options").textContent = " ";
-            document.getElementById("fifth_options").textContent = " ";
-            document.getElementById("sixth_options").textContent = " ";
-            document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " ";
-        }
-        else if(jobs.length === 3){
-            document.getElementById("title_options").textContent = "Current Jobs";
-            document.getElementById("first_options").textContent = jobs[0];
-            document.getElementById("second_options").textContent = jobs[1]; 
-            document.getElementById("third_options").textContent = jobs[2];
-            document.getElementById("fourth_options").textContent = " ";
-            document.getElementById("fifth_options").textContent = " ";
-            document.getElementById("sixth_options").textContent = " ";
-            document.getElementById("seventh_options").textContent = " ";
-            document.getElementById("eighth_options").textContent = " ";
-        } */ 
     }
     else if(classMates.includes(document.getElementById("second_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later 
         shipHolder = document.getElementById("second_options").textContent; 

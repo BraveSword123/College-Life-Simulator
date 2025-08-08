@@ -548,6 +548,36 @@ height: 300px;
   color: white; 
  }
 
+ @media (max-width: 1023px){
+  /* Change this Later */ 
+  #clubs_nav{
+    text-align: center;
+  }
+  #dorms_nav{
+    text-align: center;
+  }
+  #finance_nav{
+    text-align: center;
+  }
+  #friends_nav{
+    text-align: center;
+  }
+  #intern_nav{
+    text-align: center;
+  }
+  #jobs_nav{
+    text-align: center;
+  }  
+  #right_nav{
+    justify-content: center;     
+  }
+  #school_nav{
+    text-align: center;
+  }
+ /*  #title_options{
+    text-align: left;
+  } */ 
+ }
 
 
 /*#school_nav{
