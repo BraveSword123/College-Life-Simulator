@@ -43,7 +43,8 @@ Begin by selecting your first name, last name, major, and gender. Once you've en
 <img width="3000" height="1714" alt="image" src="https://github.com/user-attachments/assets/3374006a-6272-44b4-a536-0b1d4cfd4a92" />
 <img width="3000" height="1716" alt="image" src="https://github.com/user-attachments/assets/174670b8-6e73-4860-b8b4-c801e873f354" />
 <img width="3000" height="1726" alt="image" src="https://github.com/user-attachments/assets/3a078ac2-7801-4a81-a5c8-383b52d7eca2" />
-<img width="3000" height="1640" alt="image" src="https://github.com/user-attachments/assets/9e2b72cc-1efe-4404-b9c7-94e9c404a1f0" />
+<img width="3000" height="1726" alt="image" src="https://github.com/user-attachments/assets/fe8a381c-fd4c-4418-ad02-737fab18f2f3" />
+
 
 ---
 ### 💓Thank you so much for looking at my project!💓 I put a lot of effort into it, so I appreciate it! (˶ᵔ ᵕ ᵔ˶)
