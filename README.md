@@ -20,12 +20,15 @@ College Life is a browser-based life simulation game where players step into the
 
 🔁 Progress through semesters (Fall, Winter, Spring, Summer)
 
+❤️ Relationship system (friends, enemies, partners)
+
 ---
 
 ## Features I am Currently Working On 
-❤️ Relationship system (friends, enemies, partners)
 
 📓 Club/job performance system (slack off, work hard, get promoted/fired).
+
+🏫 Make Friends At Part-Time Jobs, Internships, or in Class 
 
 --- 
 
