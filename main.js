@@ -2,8 +2,7 @@
 let firstMain; 
 let lastMain; 
 let genderMain; 
-let majorMain; 
-let set;  
+let majorMain;  
 let finance = 3000;  
 let semester = "Fall"; 
 let dormMates = []; 
@@ -13,7 +12,6 @@ let jobs = [];
 let enemies = []; 
 let partner = "None"; 
 let hasInternship = false;  
-let grade; // May remove later
 let dormCounter = 0;  
 let jobCounter = 0; 
 let clubCounter = 0; 
@@ -23,10 +21,15 @@ let classMates = ["Ava Morgan", "Liam Carter", "Chloe Bennett", "Ethan Brooks", 
 let shipHolder; 
 let combinedRel = []; 
 let i = 0; 
+let currentGrade = "C"; 
 // I can totally make for loops for everything with this now (That will really help shorten my code and make it easier to read)
 let optionIds = ["first_options", "second_options", "third_options", "fourth_options", "fifth_options", "sixth_options", "seventh_options", "eighth_options"];
-
-let first = 1; // Test
+// let first = 1; // Test
+let school_WH = false; 
+let school_SO = false; 
+let jobComp = ["Library Assistant", "Barista", "Campus Tour Guide", "Resident Assistant", "Tutor", "Café Worker", "Research Assistant", "Fitness Instructor"]; 
+let clubComp = ["Programming Club", "Social Justice Club", "Debate Club", "Art Club", "Finance Club", "Psychology Club", "Drama Club", "Music Club"]; 
+// classMates.includes(document.getElementById("first_options").textContent
 
 class main{
     constructor(first, last, gender, major){
@@ -71,7 +74,7 @@ function finance_Button(){
     document.getElementById("main_nav").style.display = 'none';
     document.getElementById("options_div").style.display = 'block';
 
-
+    document.getElementById("title_options").textContent = "Finances";   
     document.getElementById("fourth_options").textContent = " ";
     document.getElementById("fifth_options").textContent = " ";
     document.getElementById("sixth_options").textContent = " ";
@@ -111,7 +114,7 @@ function finance_Button(){
     if(dormMates.length === 4){
         document.getElementById("first_options").textContent = "Housing:  -$1000 per semester";
     }
-    if(dormMates.length === 4){
+    if(dormMates.length === 5){
         document.getElementById("first_options").textContent = "Housing:  -$500 per semester";
     }
 
@@ -135,7 +138,7 @@ function intern_Button(){
     }
     if(hasInternship === true){
         document.getElementById("title_options").textContent = "Internships";   
-        document.getElementById("first_options").textContent = "Current Internship"; 
+        document.getElementById("first_options").textContent = "Quit Internship"; 
         document.getElementById("second_options").textContent = " ";
         document.getElementById("third_options").textContent = " ";
         document.getElementById("fourth_options").textContent = " ";
@@ -160,6 +163,21 @@ function job_Button(){
     document.getElementById("seventh_options").textContent = " ";
     document.getElementById("eighth_options").textContent = " ";
 }
+
+ function school_Button(){
+    document.getElementById("main_nav").style.display = 'none';
+    document.getElementById("options_div").style.display = 'block';
+
+    document.getElementById("title_options").textContent = "Schoolwork";
+    document.getElementById("first_options").textContent = "Current Grades - " + currentGrade; // Current Grades - 
+    document.getElementById("second_options").textContent = "Work Harder";
+    document.getElementById("third_options").textContent = "Slack Off"; // Seems like there is an error here 
+    document.getElementById("fourth_options").textContent = " ";
+    document.getElementById("fifth_options").textContent = " ";
+    document.getElementById("sixth_options").textContent = " ";
+    document.getElementById("seventh_options").textContent = " ";
+    document.getElementById("eighth_options").textContent = " ";
+} 
 
 function relationships_Button(){
     document.getElementById("main_nav").style.display = 'none';
@@ -193,7 +211,7 @@ console.log(combinedRel);
         document.getElementById("eighth_options").textContent = " ";
     }
     else{
-        for(let i = 0; i < 7; i++){
+        for(let i = 0; i < 8; i++){
             if(i < combinedRel.length){
                 document.getElementById(optionIds[i]).textContent = combinedRel[i]; 
             }
@@ -203,6 +221,7 @@ console.log(combinedRel);
         }
     }
 
+    // Remove this code 
      /* for(let i = 0; i <= friend.size; i++){
         if(i == 0){
         document.getElementById("first_options").textContent = friends[i] + " Friend";
@@ -278,6 +297,7 @@ document.getElementById("options_div").style.display = 'none';
 }
 
 else if(document.getElementById("first_options").textContent === "Find Jobs"){
+    // Change this to an array
     document.getElementById("title_options").textContent = "Find Jobs";
     document.getElementById("first_options").textContent = "Library Assistant"; 
     document.getElementById("second_options").textContent = "Barista"; 
@@ -297,23 +317,30 @@ else if(document.getElementById("first_options").textContent === "Library Assist
     document.getElementById("main_nav").style.display = 'block';
     document.getElementById("options_div").style.display = 'none';
 }
+else if(document.getElementById("first_options").textContent === "Library Assistant" && jobCounter >= 3 &&  document.getElementById("title_options").textContent === "Find Jobs"){
+    document.getElementById("limitDiv").innerHTML = "You Can Only<br>Have 3 Jobs!"; 
+    document.getElementById("limitDiv").style.display = 'block'; 
+    document.getElementById("limitButton").style.display = 'block'; 
+}
+
+
     // If the name is _________ or ___________ or ..... then write befriend, make enemy, start dating
      // Need to specify which character it is!!! 
      // If textContent = an element in classMates[] and (textConent of title is Current Dormmates) (We will add or to this once I program relationships for club/internships/jobs)
     // else if(document.getElementById("first_options").textContent === "Ava Morgan" || document.getElementById("first_options").textContent === "Liam Carter" || document.getElementById("first_options").textContent === "Chloe Bennett" || document.getElementById("first_options").textContent === "Ethan Brooks" || document.getElementById("first_options").textContent === "Isla Hayes" || document.getElementById("first_options").textContent === "Nathan Reyes" || document.getElementById("first_options").textContent === "Maya Dawson" || document.getElementById("first_options").textContent === "Adrian Foster"){
-     else if(classMates.includes(document.getElementById("first_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later  
-        shipHolder = document.getElementById("first_options").textContent; 
-        document.getElementById("title_options").textContent = "Relationships";
-        document.getElementById("first_options").textContent = "Befriend";
-        document.getElementById("second_options").textContent = "Make Enemy"; 
-        document.getElementById("third_options").textContent = "Start Dating";
-        document.getElementById("fourth_options").textContent = " ";
-        document.getElementById("fifth_options").textContent = " ";
-        document.getElementById("sixth_options").textContent = " ";
-        document.getElementById("seventh_options").textContent = " ";
-        document.getElementById("eighth_options").textContent = " "; 
+else if(classMates.includes(document.getElementById("first_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later  
+    shipHolder = document.getElementById("first_options").textContent; 
+    document.getElementById("title_options").textContent = "Relationships";
+    document.getElementById("first_options").textContent = "Befriend";
+    document.getElementById("second_options").textContent = "Make Enemy"; 
+    document.getElementById("third_options").textContent = "Start Dating";
+    document.getElementById("fourth_options").textContent = " ";
+    document.getElementById("fifth_options").textContent = " ";
+    document.getElementById("sixth_options").textContent = " ";
+    document.getElementById("seventh_options").textContent = " ";
+    document.getElementById("eighth_options").textContent = " "; 
 } 
-    else if(document.getElementById("first_options").textContent === "Befriend" && friends.includes(shipHolder) === false && friendCounter <= 3){
+else if(document.getElementById("first_options").textContent === "Befriend" && friends.includes(shipHolder) === false && friendCounter <= 3){
     document.getElementById("main_nav").style.display = 'block';
     document.getElementById("options_div").style.display = 'none';
 
@@ -321,6 +348,33 @@ else if(document.getElementById("first_options").textContent === "Library Assist
     console.log(friends);
     ++friendCounter;  
 }
+
+else if(document.getElementById("first_options").textContent === "Quit Internship"){
+    hasInternship = false;
+    document.getElementById("main_nav").style.display = 'block';
+    document.getElementById("options_div").style.display = 'none'; 
+}
+ else if(jobComp.includes(document.getElementById("first_options").textContent) && document.getElementById("title_options").textContent === "Current Jobs (Click to Quit Job)"){
+   jobs.splice(0,1); 
+   --jobCounter; 
+   document.getElementById("main_nav").style.display = 'block';
+   document.getElementById("options_div").style.display = 'none';  
+} 
+else if(clubComp.includes(document.getElementById("first_options").textContent) && document.getElementById("title_options").textContent === "Current Club (Click to Quit Club)"){
+    clubs.splice(0,1); 
+    --clubCounter; 
+    document.getElementById("main_nav").style.display = 'block';
+    document.getElementById("options_div").style.display = 'none'; 
+ } 
+ // dormMates.splice()
+ // dormCounter 
+ // classMates.includes 
+ else if(classMates.includes(document.getElementById("first_options").textContent) && document.getElementById("title_options").textContent === "Current Dormmates (Click to Remove Dormmates)"){
+    dormMates.splice(0,1); 
+    --dormCounter; 
+    document.getElementById("main_nav").style.display = 'block';
+    document.getElementById("options_div").style.display = 'none'; 
+ } 
 }
 
 function secondOption(){
@@ -348,9 +402,11 @@ function secondOption(){
         document.getElementById("main_nav").style.display = 'block';
         document.getElementById("options_div").style.display = 'none';
     }
-    // Change to Array Later 
+/*     if(textContent == "Work Harder && currentGrade == "C){
+        currentGrade = B; 
+        } */ 
    else if(document.getElementById("second_options").textContent === "Current Clubs"){
-    document.getElementById("title_options").textContent = "Current Club";
+    document.getElementById("title_options").textContent = "Current Club (Click to Quit Club)";
 
     if(clubs.length === 0){
         document.getElementById("first_options").textContent = "No Current Clubs"; 
@@ -375,10 +431,9 @@ else{
     } 
       // Change to Array Later 
     else if(document.getElementById("second_options").textContent === "Current Dormmates"){  
-      document.getElementById("title_options").textContent = "Current Dormmates";
+      document.getElementById("title_options").textContent = "Current Dormmates (Click to Remove Dormmates)";
   
      if(dormMates.length === 0){
-            document.getElementById("title_options").textContent = "Current Dormmates";
             document.getElementById("first_options").textContent = "No Current Dormmates"; 
             document.getElementById("second_options").textContent = " ";
             document.getElementById("third_options").textContent = " ";
@@ -400,8 +455,8 @@ else{
 }
     } 
     else if(document.getElementById("second_options").textContent === "Current Jobs"){
+    document.getElementById("title_options").textContent = "Current Jobs (Click to Quit Job)";
         if(jobs.length === 0){
-            document.getElementById("title_options").textContent = "Current Jobs";
             document.getElementById("first_options").textContent = "No Current Jobs"; 
             document.getElementById("second_options").textContent = " ";
             document.getElementById("third_options").textContent = " ";
@@ -443,6 +498,30 @@ else if(document.getElementById("second_options").textContent === "Make Enemy" &
     console.log(enemies); 
     ++enemyCounter; 
 } 
+else if(document.getElementById("second_options").textContent === "Work Harder" && document.getElementById("title_options").textContent === "Schoolwork"){
+    school_WH = true;
+    school_SO = false; 
+    document.getElementById("main_nav").style.display = 'block';
+    document.getElementById("options_div").style.display = 'none';
+}
+else if(jobComp.includes(document.getElementById("second_options").textContent) && document.getElementById("title_options").textContent === "Current Jobs (Click to Quit Job)"){
+    jobs.splice(1,1); 
+    --jobCounter; 
+    document.getElementById("main_nav").style.display = 'block';
+    document.getElementById("options_div").style.display = 'none'; 
+ } 
+ else if(clubComp.includes(document.getElementById("second_options").textContent) && document.getElementById("title_options").textContent === "Current Club (Click to Quit Club)"){
+    clubs.splice(1,1); 
+    --clubCounter; 
+    document.getElementById("main_nav").style.display = 'block';
+    document.getElementById("options_div").style.display = 'none'; 
+ }
+ else if(classMates.includes(document.getElementById("second_options").textContent) && document.getElementById("title_options").textContent === "Current Dormmates (Click to Remove Dormmates)"){
+    dormMates.splice(1,1); 
+    --dormCounter; 
+    document.getElementById("main_nav").style.display = 'block';
+    document.getElementById("options_div").style.display = 'none'; 
+ } 
 }
 
     function thirdOption(){
@@ -472,6 +551,7 @@ else if(document.getElementById("second_options").textContent === "Make Enemy" &
         }
             // If the name is _________ or ___________ or ..... then write befriend, make enemy, start dating
             else if(classMates.includes(document.getElementById("third_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later 
+                // Change this into a function
                 shipHolder = document.getElementById("third_options").textContent; 
                 document.getElementById("title_options").textContent = "Relationships";
                 document.getElementById("first_options").textContent = "Befriend";
@@ -490,6 +570,30 @@ else if(document.getElementById("second_options").textContent === "Make Enemy" &
             partner = shipHolder; 
             console.log(partner); 
         } 
+        else if(document.getElementById("third_options").textContent === "Slack Off" && document.getElementById("title_options").textContent === "Schoolwork"){
+            school_SO = true;
+            school_WH = false; 
+            document.getElementById("main_nav").style.display = 'block';
+            document.getElementById("options_div").style.display = 'none';
+        }
+        else if(jobComp.includes(document.getElementById("third_options").textContent) && document.getElementById("title_options").textContent === "Current Jobs (Click to Quit Job)"){
+            jobs.splice(2,1); 
+            --jobCounter; 
+            document.getElementById("main_nav").style.display = 'block';
+            document.getElementById("options_div").style.display = 'none'; 
+         }
+         else if(clubComp.includes(document.getElementById("third_options").textContent) && document.getElementById("title_options").textContent === "Current Club (Click to Quit Club)"){
+            clubs.splice(2,1); 
+            --clubCounter; 
+            document.getElementById("main_nav").style.display = 'block';
+            document.getElementById("options_div").style.display = 'none'; 
+         } 
+         else if(classMates.includes(document.getElementById("third_options").textContent) && document.getElementById("title_options").textContent === "Current Dormmates (Click to Remove Dormmates)"){
+            dormMates.splice(2,1); 
+            --dormCounter; 
+            document.getElementById("main_nav").style.display = 'block';
+            document.getElementById("options_div").style.display = 'none'; 
+         } 
     }
 
     function fourthOption(){
@@ -519,6 +623,7 @@ else if(document.getElementById("second_options").textContent === "Make Enemy" &
         }
             // If the name is _________ or ___________ or ..... then write befriend, make enemy, start dating
             else if(classMates.includes(document.getElementById("fourth_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later 
+               // change this into a function
                 shipHolder = document.getElementById("fourth_options").textContent; 
                 document.getElementById("title_options").textContent = "Relationships";
                 document.getElementById("first_options").textContent = "Befriend";
@@ -529,7 +634,19 @@ else if(document.getElementById("second_options").textContent === "Make Enemy" &
                 document.getElementById("sixth_options").textContent = " ";
                 document.getElementById("seventh_options").textContent = " ";
                 document.getElementById("eighth_options").textContent = " ";
-        } 
+        }
+        else if(clubComp.includes(document.getElementById("fourth_options").textContent) && document.getElementById("title_options").textContent === "Current Club (Click to Quit Club)"){
+            clubs.splice(3,1); 
+            --clubCounter; 
+            document.getElementById("main_nav").style.display = 'block';
+            document.getElementById("options_div").style.display = 'none'; 
+         }
+         else if(classMates.includes(document.getElementById("fourth_options").textContent) && document.getElementById("title_options").textContent === "Current Dormmates (Click to Remove Dormmates)"){
+            dormMates.splice(3,1); 
+            --dormCounter; 
+            document.getElementById("main_nav").style.display = 'block';
+            document.getElementById("options_div").style.display = 'none'; 
+         } 
     }
 
     function fifthOption(){
@@ -559,6 +676,7 @@ else if(document.getElementById("second_options").textContent === "Make Enemy" &
         }
             // If the name is _________ or ___________ or ..... then write befriend, make enemy, start dating
             else if(classMates.includes(document.getElementById("fifth_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later 
+                // Change this into a function 
                 shipHolder = document.getElementById("fifth_options").textContent; 
                 document.getElementById("title_options").textContent = "Relationships";
                 document.getElementById("first_options").textContent = "Befriend";
@@ -570,6 +688,18 @@ else if(document.getElementById("second_options").textContent === "Make Enemy" &
                 document.getElementById("seventh_options").textContent = " ";
                 document.getElementById("eighth_options").textContent = " ";
         } 
+        else if(clubComp.includes(document.getElementById("fifth_options").textContent) && document.getElementById("title_options").textContent === "Current Club (Click to Quit Club)"){
+            clubs.splice(4,1); 
+            --clubCounter; 
+            document.getElementById("main_nav").style.display = 'block';
+            document.getElementById("options_div").style.display = 'none'; 
+         }
+         else if(classMates.includes(document.getElementById("fifth_options").textContent) && document.getElementById("title_options").textContent === "Current Dormmates (Click to Remove Dormmates)"){
+            dormMates.splice(4,1); 
+            --dormCounter; 
+            document.getElementById("main_nav").style.display = 'block';
+            document.getElementById("options_div").style.display = 'none'; 
+         } 
     }
 
     function sixthOption(){
@@ -599,6 +729,7 @@ else if(document.getElementById("second_options").textContent === "Make Enemy" &
         }
             // If the name is _________ or ___________ or ..... then write befriend, make enemy, start dating
             else if(classMates.includes(document.getElementById("sixth_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later 
+                // Change this into a function 
                 shipHolder = document.getElementById("sixth_options").textContent; 
                 document.getElementById("title_options").textContent = "Relationships";
                 document.getElementById("first_options").textContent = "Befriend";
@@ -639,6 +770,7 @@ else if(document.getElementById("second_options").textContent === "Make Enemy" &
         }
             // If the name is _________ or ___________ or ..... then write befriend, make enemy, start dating
             else if(classMates.includes(document.getElementById("seventh_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later 
+                // Need to Make a Function for this
                 shipHolder = document.getElementById("seventh_options").textContent; 
                 document.getElementById("title_options").textContent = "Relationships";
                 document.getElementById("first_options").textContent = "Befriend";
@@ -679,6 +811,7 @@ else if(document.getElementById("second_options").textContent === "Make Enemy" &
         }
             // If the name is _________ or ___________ or ..... then write befriend, make enemy, start dating
             else if(classMates.includes(document.getElementById("eighth_options").textContent) && (document.getElementById("title_options").textContent === "Current Dormmates")){ // Add Or Later 
+                // Change this into a function 
                 shipHolder = document.getElementById("eighth_options").textContent; 
                 document.getElementById("title_options").textContent = "Relationships";
                 document.getElementById("first_options").textContent = "Befriend";
@@ -707,7 +840,7 @@ function statButton(){
    genderMain = document.getElementById("gender").value;
    majorMain = document.getElementById("major").value;
 
-    stat = new main(firstMain, lastMain, genderMain, majorMain); 
+    const stat = new main(firstMain, lastMain, genderMain, majorMain); 
    
     document.getElementById("opening").style.display = 'none';
     document.getElementById("main_nav").style.display = 'block';
@@ -728,147 +861,94 @@ function changeSemester(){
 if(semester === "Fall"){
     semester = "Winter";
     document.getElementById("semester_div").textContent = semester;
-    if(hasInternship===true){
-        finance = finance + (50 * 4 * 5);
-       }
-    if(jobs.length === 1){
-        finance = finance + (150 * 4 * 5);
-    }
-    if(jobs.length === 2){
-        finance = finance + (300* 4 * 5);
-    }
-    if(jobs.length === 3){
-        finance = finance + (450 * 4 * 5);
-    }
-    if(dormMates.length === 0){
-        finance = finance - 3000;
-    }
-    if(dormMates.length === 1){
-        finance = finance - 2500;
-    }
-    if(dormMates.length === 2){
-        finance = finance - 2000;
-    }
-    if(dormMates.length === 3){
-        finance = finance - 1500;
-    }
-    if(dormMates.length === 4){
-        finance = finance - 1000;
-    }
-    if(dormMates.length === 4){
-        finance = finance - 500;
-    }
 }
 else if(semester === "Winter"){
     semester = "Spring";
     document.getElementById("semester_div").textContent = semester;
-    if(hasInternship===true){
-        finance = finance + (50 * 4 * 5);
-       }
-    if(jobs.length === 1){
-        finance = finance + (150 * 4 * 5);
-    }
-    if(jobs.length === 2){
-        finance = finance + (300* 4 * 5);
-    }
-    if(jobs.length === 3){
-        finance = finance + (450 * 4 * 5);
-    }
-    if(dormMates.length === 0){
-        finance = finance - 3000;
-    }
-    if(dormMates.length === 1){
-        finance = finance - 2500;
-    }
-    if(dormMates.length === 2){
-        finance = finance - 2000;
-    }
-    if(dormMates.length === 3){
-        finance = finance - 1500;
-    }
-    if(dormMates.length === 4){
-        finance = finance - 1000;
-    }
-    if(dormMates.length === 4){
-        finance = finance - 500;
-    }
 }
 
 else if(semester === "Spring"){
     semester = "Summer";
     document.getElementById("semester_div").textContent = semester;
-    if(hasInternship===true){
-        finance = finance + (50 * 4 * 5);
-       }
-    if(jobs.length === 1){
-        finance = finance + (150 * 4 * 5);
-    }
-    if(jobs.length === 2){
-        finance = finance + (300* 4 * 5);
-    }
-    if(jobs.length === 3){
-        finance = finance + (450 * 4 * 5);
-    }
-    if(dormMates.length === 0){
-        finance = finance - 3000;
-    }
-    if(dormMates.length === 1){
-        finance = finance - 2500;
-    }
-    if(dormMates.length === 2){
-        finance = finance - 2000;
-    }
-    if(dormMates.length === 3){
-        finance = finance - 1500;
-    }
-    if(dormMates.length === 4){
-        finance = finance - 1000;
-    }
-    if(dormMates.length === 4){
-        finance = finance - 500;
-    }
 }
 else if(semester === "Summer"){
     semester = "Fall";
     document.getElementById("semester_div").textContent = semester;
-    if(hasInternship===true){
-        finance = finance + (50 * 4 * 5);
-       }
-    if(jobs.length === 1){
-        finance = finance + (150 * 4 * 5);
-    }
-    if(jobs.length === 2){
-        finance = finance + (300* 4 * 5);
-    }
-    if(jobs.length === 3){
-        finance = finance + (450 * 4 * 5);
-    }
-    if(dormMates.length === 0){
-        finance = finance - 3000;
-    }
-    if(dormMates.length === 1){
-        finance = finance - 2500;
-    }
-    if(dormMates.length === 2){
-        finance = finance - 2000;
-    }
-    if(dormMates.length === 3){
-        finance = finance - 1500;
-    }
-    if(dormMates.length === 4){
-        finance = finance - 1000;
-    }
-    if(dormMates.length === 4){
-        finance = finance - 500;
-    }
+    // Maybe we should move this outside of the else if statement 
 }
+
+if(hasInternship===true){
+    finance = finance + (50 * 4 * 5);
+   }
+if(jobs.length === 1){
+    finance = finance + (150 * 4 * 5);
+}
+if(jobs.length === 2){
+    finance = finance + (300* 4 * 5);
+}
+if(jobs.length === 3){
+    finance = finance + (450 * 4 * 5);
+}
+if(dormMates.length === 0){
+    finance = finance - 3000;
+}
+if(dormMates.length === 1){
+    finance = finance - 2500;
+}
+if(dormMates.length === 2){
+    finance = finance - 2000;
+}
+if(dormMates.length === 3){
+    finance = finance - 1500;
+}
+if(dormMates.length === 4){
+    finance = finance - 1000;
+}
+if(dormMates.length === 5){
+    finance = finance - 500;
+}
+
+// Also include the school_WH here 
+if(school_WH === true && currentGrade === "B"){
+    currentGrade = "A"; 
+    school_WH = false; 
+} 
+else if(school_WH === true && currentGrade === "C"){
+    currentGrade = "B"; 
+    school_WH = false; 
+}
+else if(school_WH === true && currentGrade === "D"){
+    currentGrade = "C"; 
+    school_WH = false; 
+}       
+else if(school_WH === true && currentGrade === "F"){
+    currentGrade = "D"; 
+    school_WH = false; 
+}
+
+// school_SO
+if(school_SO === true && currentGrade === "A"){
+    currentGrade = "B"; 
+    school_SO = false; 
+} 
+else if(school_SO === true && currentGrade === "B"){
+    currentGrade = "C"; 
+    school_SO = false; 
+}
+else if(school_SO === true && currentGrade === "C"){
+    currentGrade = "D"; 
+    school_SO = false; 
+}       
+else if(school_SO === true && currentGrade === "D"){
+    currentGrade = "F"; 
+    school_SO = false; 
+}
+
 document.getElementById("money_div").textContent = "$" + finance;
 ++i
 console.log(finance); 
  }
 }
-
-
 // End of Opening 
 
 
@@ -948,6 +1028,18 @@ if second
 second back to first
 
 Most internships usually last at most a year, so we might have to edit that in the future but I won't for now 
+
+Start with C and have it go up or down and if you don't do anything it stays a C
+Need buttons to quit jobs, part time internship, clubs, remove dormmates 
+Change relationship with people if you want 
+Click on Jobs and be given the possibelity to work hard slack off or makr friends 
+Don't know if I want the ability to work hard at job or internship because why you know, what will it add 
+- Maybe I should lower the scope and only add finding friends for school and dorms 
+- Only add working harder for school, so I can get this complete 
+
+Add the ability to change relationships
+Create a ending page that says your time in school is over 
+Messages saying you have reached the limit of dormmates, clubs, internships, jobs 
 */
 
 

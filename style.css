@@ -30,10 +30,10 @@ html, body{
     z-index:3; 
     background-color: rgb(255,249,158);
     width:400px; 
+    padding: 20px; 
     position:fixed; 
     top:50px; 
     font-size:15px; 
-    padding: 20px; 
     border: 4px solid rgb(255,196,229); 
   /*  display: none; 
     position:fixed; 
@@ -548,6 +548,49 @@ height: 300px;
   color: white; 
  }
 
+ #limitDiv{
+/*  width:400px; 
+ padding: 20px;  
+  background-color: white; 
+  z-index: 9; 
+  border: 4px solid rgb(255,241,249); */ 
+  height: 100px; 
+  position: fixed;       
+  top: 250px;           
+  left: 50%;
+  transform: translateX(-50%);  
+  background: #fff;
+  border: 4px solid rgb(255,241,249);
+  padding: 8px 12px;
+  z-index: 1000;
+  text-align: center; 
+  font-weight: bold;
+  display: none; 
+}
+
+#limitButton{
+  position: fixed; 
+  left: 85px; 
+  height: 40px; 
+  width: 70px; 
+  bottom: 20px; 
+  background-color: rgb(255, 249, 158);
+  border: 2px solid rgb(255, 196, 229);
+  display: none; 
+}
+
+#limitButton:hover{
+  cursor: pointer; 
+  background-color: rgb(255, 253, 231);
+  border: 2px solid rgb(255, 228, 244);
+}
+
+#limitButton:active{
+  cursor: pointer; 
+  background-color: rgb(255, 142, 210);
+  border: 2px solid rgb(255, 142, 210);
+}
+
  @media (max-width: 1023px){
   /* Change this Later */ 
   #clubs_nav{
@@ -574,6 +617,7 @@ height: 300px;
   #school_nav{
     text-align: center;
   }
+
  /*  #title_options{
     text-align: left;
   } */ 
