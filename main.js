@@ -16,6 +16,7 @@ let dormCounter = 0;
 let jobCounter = 0; 
 let clubCounter = 0; 
 let friendCounter = 0; 
+// This is the enemy counter 
 let enemyCounter = 0; 
 let classMates = ["Ava Morgan", "Liam Carter", "Chloe Bennett", "Ethan Brooks", "Isla Hayes", "Nathan Reyes", "Maya Dawson", "Adrian Foster"]; 
 let shipHolder; 
